@@ -75,22 +75,23 @@ class Date extends NumericFilter{
 	      }
 	    }
 	    elseif ($which == 'value') {
-	      // When exposed we drop the value-value and just do value if
-	      // the operator is locked.
+	    	// When exposed we drop the value-value and just do value if
+	      	// the operator is locked.
 	      
-	      //generate list of year in array
-	      $currentYear = date('Y');
-	      for ($year = $currentYear; $year >= 2003; $year-- ) {
-	      	$years[$year] = $year; 
-	      }
+	     	//generate list of year in array
+	    	$years = array();
+	      	$currentYear = date('Y');
+	      	for ($year = $currentYear; $year >= 2003; $year-- ) {
+	      		$years[$year] = $year; 
+	      	}
 	      
-	      $form['value'] = array(
-	        '#type' => 'select',
-	        '#title' => !$exposed ? $this->t('Value') : '',
-	        '#options' => $years,
-	        //'#options'=>['2015'=>'2015','2016'=>'2016','2017'=>'2017','2018'=>'2018'],
-	        '#default_value'=>[date('Y')=>date('Y')]
-	      );
+		   	$form['value'] = array(
+		    	'#type' => 'select',
+		        '#title' => !$exposed ? $this->t('Value') : '',
+		        '#options' => $years,
+		        //'#options'=>['2015'=>'2015','2016'=>'2016','2017'=>'2017','2018'=>'2018'],
+		        '#default_value'=>[date('Y')=>date('Y')]
+		   	);
 	      
 	      if ($exposed && !isset($user_input[$identifier])) {
 	      	$user_input[$identifier] = $this->value['value'];
