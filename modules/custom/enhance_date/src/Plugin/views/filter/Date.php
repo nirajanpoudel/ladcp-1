@@ -80,7 +80,7 @@ class Date extends NumericFilter{
 	      
 	      //generate list of year in array
 	      $currentYear = date('Y');
-	      for ($year = $currentYear; $year > 2000; $year-- ) {
+	      for ($year = $currentYear; $year >= 2003; $year-- ) {
 	      	$years[$year] = $year; 
 	      }
 	      
