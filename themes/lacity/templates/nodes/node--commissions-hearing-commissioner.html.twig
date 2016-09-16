@@ -76,9 +76,7 @@
 <article{{ attributes }}>
 
   
-    <h2>
-      {{ label }} &nbsp; {{ content.field_last_name }}
-    </h2>
+   
  
 
   {% if display_submitted %}
@@ -92,6 +90,11 @@
   {% endif %}
 
   <div{{ content_attributes }}>
+  	{{ content.field_image }}
+  	 <h3>
+      {{ label }} &nbsp; {{ content.field_last_name }}
+    </h3>
+    	{{ hide(content.field_image) }}
   	{{ content }}
     
   </div>
