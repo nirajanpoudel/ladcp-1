@@ -54,13 +54,16 @@ class Date extends NumericFilter{
 	    }
 	
 	    $user_input = $form_state->getUserInput();
+	    
+	    $years = $this->displayYearList();		// display years in array list
+	    
 	    if ($which == 'all') {
-	      $form['value']['value'] = array(
-	        '#type' => 'select',
-	        '#title' => !$exposed ? $this->t('Value') : '',
-	        '#options'=>['2015'=>'2015','2016'=>'2016','2017'=>'2017'],
-	        '#default_value'=>[date('Y')=>date('Y')]
-	      );
+		    $form['value']['value'] = array(
+		        '#type' => 'select',
+		        '#title' => !$exposed ? $this->t('Value') : '',
+		        '#options'=> $years,
+		        '#default_value'=>[date('Y')=>date('Y')]
+		      );
 	      
 	      // Setup #states for all operators with one value.
 	      foreach ($this->operatorValues(1) as $operator) {
@@ -77,13 +80,6 @@ class Date extends NumericFilter{
 	    elseif ($which == 'value') {
 	    	// When exposed we drop the value-value and just do value if
 	      	// the operator is locked.
-	      
-	     	//generate list of year in array
-	    	$years = array();
-	      	$currentYear = date('Y');
-	      	for ($year = $currentYear; $year >= 2003; $year-- ) {
-	      		$years[$year] = $year; 
-	      	}
 	      
 		   	$form['value'] = array(
 		    	'#type' => 'select',
@@ -108,5 +104,21 @@ class Date extends NumericFilter{
 	      		$this->query->addWhere($this->options['group'], $field, array($min, $max), 'BETWEEN');
 	    	}
 	    }
+  	}
+  	
+  	/**
+  	 * Display list of year from 2003 to till date
+  	 * 
+  	 * @return array
+  	 */
+  	public function displayYearList () {
+  		//generate list of year in array
+  		$years = array();
+  		$currentYear = date('Y');
+  		for ($year = $currentYear; $year >= 2003; $year-- ) {
+  			$years[$year] = $year;
+  		}
+  		
+  		return $years;
   	}
 }
