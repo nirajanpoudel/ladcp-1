@@ -1,22 +1,21 @@
-       <div class="col-md-12">
-
-          <div class="row">
-            <div style="background-color:#BD4B26; color:white;" class="col-md-12">
-              <h2 class="text-center">
-              {{ label }}
-              </h2>
-            </div>
-          </div>
-
-          <div style="margin-top:30px;" class="row">
-            <div style="font-size:1.2em; font-weight:600;" class="col-md-12">
-	            {{ content.body }}
-	            <br>
-	            {% if content.field_doc|render  %}
-	             	{{ content.field_doc }}
-	            {% endif %}
-            </div>
-          </div>
-
-        </div>
+		<div class="col-md-7">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div style="background-color:#BD4B26; color:white;" class="col-md-6">
+					<h3 class="text-center">Latest News</h3>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		
+			<div class="row">
+				<div style="margin-top:30px;" class="col-md-12"> 
+					<div>{{ content.field_image }}</div>
+					<div>{{ content.body }}</div>
+			        <br>
+		            {% if content.field_doc|render  %}
+		             	<div>{{ content.field_doc }}</div>
+		            {% endif %}
+				</div>
+			</div>
+		</div> {# //end col-md-7 content #}
 
