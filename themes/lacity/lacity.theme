@@ -44,6 +44,13 @@ function lacity_form_views_exposed_form_agenda_page_1_alter (&$form, \Drupal\Cor
 	 kint($form);
 }
 
+function lacity_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state){
+kint($form);
+	//if($form['#theme'][0] == 'views_exposed_form__Dining_Venues__page_1'){
+		//$form['ct']['#options']['All'] = 'All Cuisine Types';
+	//}
+}
+
 // pdf file can get from this function
 function lacity_preprocess_file_link(&$variables) {
 	if ($node = \Drupal::routeMatch ()->getParameter ( 'node' )) {
