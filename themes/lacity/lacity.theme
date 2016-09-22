@@ -40,7 +40,16 @@ function lacity_theme_suggestions_node_alter(array &$suggestions, array $variabl
 	// kint($suggestions);
 }
 
+function lacity_form_views_exposed_form_agenda_page_1_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	 kint($form);
+}
 
+function hook_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-agenda-page-1') {
+        kint($form);
+
+}
+}
 
 
 // pdf file can get from this function
